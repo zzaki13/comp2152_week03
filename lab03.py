@@ -15,15 +15,33 @@ if combatStrength < 1 or combatStrength > 6:
     print ("Invalid input! Please choose between 1 -6  only!")
     combatStrength = 1 # This will be set as the default value
 
-combatStrength = max(1, min(6, int(input("Hero strength (1-6): "))))
-mCombatStrength = max(1, min(6, int(input("Monster strength (1-6): "))))
+# Input Combat Strength for Monster
 
-# # Battle
-# for j in range(1, 21, 2):
-#     heroRoll, monsterRoll = random.choice(diceOptions), random.choice(diceOptions)
-#     heroTotal, monsterTotal = combatStrength + heroRoll, mCombatStrength + monsterRoll
-#     print(f"Round {j}: Hero({weapons[heroRoll - 1]})={heroTotal}, Monster({weapons[monsterRoll - 1]})={monsterTotal}.",
-#             "Hero wins!" if heroTotal > monsterTotal else "Monster wins!" if heroTotal < monsterTotal else "Tie!")
-#     if j == 11:
-#         print("Battle Truce declared. Game Over!")
-#         break
+mCombatStrength = int (input ("Enter your Combat Strength (1-6): "))
+if mCombatStrength < 1 or mCombatStrength > 6:
+    print ("Invalid Monster Combact Input! Please choose between 1 -6  only!")
+    mCombatStrength = 1 # This will be set as the default value
+
+
+# Simulate Battle
+for j in range (1, 21, 2): #Simulation of 20 Rounds, Steppeing by 2
+    
+    # Dice rolls for Hero and Monster
+    heroRoll = random.choice(diceOptions)
+    monsterRoll = random.choice(diceOptions)
+
+
+# Calculate the Weapons
+heroWeapon = weapons[heroRoll -1]
+monsterWeapon = weapons[monsterRoll -1]
+
+#Calculate Total Strength
+
+heroTotal = combatStrength + heroRoll
+monsterTotal = combatStrength + monsterRoll
+
+
+# Print round details
+print(f"\nRound {j} hero rolled {heroRoll}, Monster rolled {monsterRoll}")
+print(f"\nHero Selected: {heroTotal}, Monster selected: {monsterTotal}")
+print(f"Hero total strength: {heroTotal}, Monster total strength: {monsterTotal}")
