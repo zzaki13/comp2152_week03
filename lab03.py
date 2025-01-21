@@ -45,3 +45,19 @@ monsterTotal = combatStrength + monsterRoll
 print(f"\nRound {j} hero rolled {heroRoll}, Monster rolled {monsterRoll}")
 print(f"\nHero Selected: {heroTotal}, Monster selected: {monsterTotal}")
 print(f"Hero total strength: {heroTotal}, Monster total strength: {monsterTotal}")
+
+#Determine the Winner
+if heroTotal > monsterTotal:
+    print("Hero Wins!")
+elif heroTotal < monsterTotal:
+    print("Monster Wins!")
+else:
+    print("It's a tie!")
+
+    if j == 11:
+        print("\n Battle Truce declread in Round 11. Game Over!")
+        break
+if j != 11:
+    print("\n Battle conluded after 20 rounds!")
+    
+    
